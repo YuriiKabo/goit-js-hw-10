@@ -16,18 +16,16 @@ export function fetchCountries(name) {
         Notify.failure(`OOps, there is no country with that name`, {
           timeout: NOTIFY_DELAY,
         });
-        clearContryList();
-        clearContryInfo();
       } else if (countryObj.length > 10) {
         Notify.info(
           `Too many matches found. Please enter a more specific name.`,
           { timeout: NOTIFY_DELAY }
         );
-        clearContryList();
-        clearContryInfo();
+        // clearContryList();
+        // clearContryInfo();
       } else {
         createAllMarkup(countryObj);
       }
     })
-    .catch();
+    .catch(clearContryList(), clearContryInfo());
 }
