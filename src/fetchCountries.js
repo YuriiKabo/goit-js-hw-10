@@ -2,7 +2,7 @@ import { createAllMarkup } from './createAllMarkup';
 import { clearContryList } from './clearMarkup';
 import { clearContryInfo } from './clearMarkup';
 import { Notify } from 'notiflix';
-const NOTIFY_DELAY = 5000;
+const NOTIFY_DELAY = 2000;
 
 export function fetchCountries(name) {
   return fetch(
@@ -21,8 +21,6 @@ export function fetchCountries(name) {
           `Too many matches found. Please enter a more specific name.`,
           { timeout: NOTIFY_DELAY }
         );
-        // clearContryList();
-        // clearContryInfo();
       } else {
         createAllMarkup(countryObj);
       }
